@@ -2,14 +2,22 @@
 
 A simple RESTful API with basic CRUD operations for a personal blogging platform.
 
-### Technologies Used:
+### Features
+- Create a new blog post
+- Update an existing blog post
+- Delete an existing blog post
+- Get a single blog post
+- Get all blog posts
+- Filter blog posts by a search term
+
+### Technologies
 - **Frontend:** 
 - **Backend:** 
 - **Source Code Management:** 
 
 ### Installation
 
-### Usage Example
+### Usage
 
 _____
 
