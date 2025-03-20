@@ -36,8 +36,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public ResponseEntity<List<Post>> getPostsBySearchTerm(String term) {
-        // TODO SERVICE Implement getPostsBySearchTerm(String term)
-        
+        return new ResponseEntity<>(postRepo.searchPosts(term), HttpStatus.FOUND);
     }
 
     @Override
