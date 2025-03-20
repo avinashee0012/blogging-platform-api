@@ -11,9 +11,8 @@ A simple RESTful API with basic CRUD operations for a personal blogging platform
 - Filter blog posts by a search term
 
 ### Technologies
-- **Frontend:** 
-- **Backend:** 
-- **Source Code Management:** 
+- **Backend:** Java, Springboot, Rest API, Spring data JPA, MySQL
+- **Source Code Management:** Git, Maven, GitHub
 
 ### Installation
 

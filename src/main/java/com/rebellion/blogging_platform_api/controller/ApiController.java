@@ -8,6 +8,8 @@ import com.rebellion.blogging_platform_api.dao.PostDao;
 import com.rebellion.blogging_platform_api.entity.Post;
 import com.rebellion.blogging_platform_api.service.PostServiceImpl;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -35,36 +37,36 @@ public class ApiController {
 
     // CREATE
     @PostMapping("/posts")
-    public String createPost(@RequestBody PostDao postDao) {
-        // TODO: CONTROLLER Implement createPost(PostDao postDao)
-        return new String("createPost(PostDao postDao)");
+    public ResponseEntity<Post> createPost(@Valid @RequestBody PostDao postDao) {
+        Post post = postDao.toPost();
+        return postServiceImpl.createPost(post);
     }
 
     // READ
     @GetMapping("/posts")
     public ResponseEntity<List<Post>> getPosts(@RequestParam(required = false) String term) {
-        // TODO: CONTROLLER Implement getPosts(String term)
-        return postServiceImpl.getPosts(term);
+        if(term == null) {
+            return postServiceImpl.getPosts();
+        } else {
+            return postServiceImpl.getPostsBySearchTerm(term);
+        }
     }
 
     @GetMapping("/posts/{id}")
-    public String getPostById(@PathVariable int id) {
-        // TODO: CONTROLLER Implement getPostById(int id)
-        return new String("getPostById(int id)");
+    public ResponseEntity<?> getPostById(@PathVariable int id) {
+        return postServiceImpl.getPostById(id);
     }
 
     // UPDATE
     @PutMapping("/posts/{id}")
-    public String updatePostById(@PathVariable int id, @RequestBody PostDao postDao) {
-        // TODO: CONTROLLER Implement updatePostById(int id, PostDao postDao)
-        return new String("updatePostById(int id, PostDao postDao)");
+    public ResponseEntity<?> updatePostById(@PathVariable int id, @RequestBody PostDao postDao) {
+        return postServiceImpl.updatePostById(id, postDao);
     }
 
     // DELETE
     @DeleteMapping("/posts/{id}")
-    public String deletePostById(@PathVariable int id) {
-        // TODO: CONTROLLER Implement deletePostById(int id)
-        return new String("deletePostById(int id)");
+    public ResponseEntity<?> deletePostById(@PathVariable int id) {
+        return postServiceImpl.deletePostById(id);
     }
     
 }

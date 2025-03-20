@@ -32,10 +32,9 @@ public class Post {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     public Post() {
     }
-
 
     public int getId() {
         return id;

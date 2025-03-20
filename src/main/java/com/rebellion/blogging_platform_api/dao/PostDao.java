@@ -2,7 +2,11 @@ package com.rebellion.blogging_platform_api.dao;
 
 import java.util.List;
 
+import com.rebellion.blogging_platform_api.entity.Post;
+
 public class PostDao {
+
+    // TODO: DAO Implement validations to PostDao
     private String title;
     private String content;
     private String category;
@@ -53,6 +57,10 @@ public class PostDao {
     @Override
     public String toString() {
         return "Post [title=" + title + ", content=" + content + ", category=" + category + ", tags=" + tags + "]";
+    }
+
+    public Post toPost() {
+        return new Post(title, content, category, tags);
     }
 
 }
