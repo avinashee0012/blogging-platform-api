@@ -4,12 +4,22 @@ import java.util.List;
 
 import com.rebellion.blogging_platform_api.entity.Post;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class PostDao {
 
-    // TODO: DAO Implement validations to PostDao
+    @NotEmpty(message = "Title is mandatory")
+    @Size(min = 5, max = 50, message = "Title should be 5 to 50 characters long.")
     private String title;
+    @NotEmpty(message = "Contecnt is mandatory")
+    @Size(min = 5, max = 1000, message = "Contecnt should be 50 to 1000 characters long.")
     private String content;
+    @NotEmpty(message = "Category is mandatory")
+    @Size(min = 3, max = 10, message = "Category should be 3 to 10 characters long.")
     private String category;
+    @NotEmpty(message = "List of tags is mandatory")
+    @Size(min = 1, max = 5, message = "List of tags should have 1 to 5 tags.")
     private List<String> tags;
 
     public PostDao(String title, String content, String category, List<String> tags) {
